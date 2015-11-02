@@ -50,4 +50,13 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  # Excluding lines from the backtrace
+  config.backtrace_exclusion_patterns = [
+      /.rvm/,
+      /\/lib\d*\/ruby\//,
+      /org\/jruby\//,
+      /bin\//,
+      /lib\/rspec\/(core|expectations|matchers|mocks)/
+  ]
 end

@@ -4,6 +4,7 @@ describe 'Creating posts' do
   def create_post_item(options={})
     options[:title] ||= 'First post'
     options[:body] ||= 'Body of the first post'
+    options[:tags] ||= 'some, tags, here'
 
     visit '/'
     click_link 'New Post'
@@ -11,6 +12,7 @@ describe 'Creating posts' do
 
     fill_in 'Title', with: options[:title]
     fill_in 'Body', with: options[:body]
+    fill_in 'Tags', with: options[:tags]
     click_button 'Create Post'
   end
 
