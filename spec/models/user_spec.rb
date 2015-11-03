@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:valid_attributes) {
     {name: 'Pavel',
-     email: 'pavel.bezpalov@cyber-wizard.com'
+     email: 'pavel.bezpalov@cyber-wizard.com',
+     password: '12345678',
+     password_confirmation: '12345678'
     }
   }
 
