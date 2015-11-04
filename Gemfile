@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug'
   # http://www.rubydoc.info/gems/rspec-rails/file/README.md
   gem 'rspec-rails', '~> 3.0'
+  # http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do

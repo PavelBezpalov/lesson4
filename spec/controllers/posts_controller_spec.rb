@@ -41,7 +41,7 @@ RSpec.describe PostsController, type: :controller do
   let(:valid_session) { {} }
 
   before do
-    allow(controller).to receive(:current_user).and_return(User.new)
+    sign_in(build_stubbed(:user))
   end
 
   describe "GET #index" do
