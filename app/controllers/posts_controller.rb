@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :current_user, only: :index
   before_action :require_user, except: :index
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
