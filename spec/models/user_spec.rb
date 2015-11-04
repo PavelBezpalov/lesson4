@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { should have_many(:posts) }
+
   let(:valid_attributes) {
     {name: 'Pavel',
      email: 'pavel.bezpalov@cyber-wizard.com',

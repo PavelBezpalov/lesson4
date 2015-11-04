@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  it { should belong_to(:user) }
+
   context 'user_id field' do
     it 'exists' do
       post = Post.create(title: 'First post',
