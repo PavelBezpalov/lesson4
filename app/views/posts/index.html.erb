@@ -1,15 +1,24 @@
 <% if @posts.count > 0 %>
+    <% count = 0 %>
     <% @posts.each do |post| %>
-        <div id="<%= dom_id(post) %>" class="container container-blue">
+        <% count += 1 %>
+        <% color = if count % 3 == 0 %>
+            <% 'three' %>
+        <% elsif count.even? %>
+            <% 'two' %>
+        <% else %>
+            <% 'one' %>
+        <% end %>
+        <div id="<%= dom_id(post) %>" class="container container-<%= color %>">
           <header>
-              <%= post.title %> by <%= post.user.name %>
+            <%= post.title %> by <%= post.user.name %>
           </header>
           <main><%= post.body %></main>
           <footer><%= post.tags %>
             <% if post.user == @current_user %>
-                <%= link_to 'Show', post %>
-                <%= link_to 'Edit', edit_post_path(post) %>
-                <%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'} %>
+                <%= button_to 'Show', post, class: 'show' %>
+                <%= button_to 'Edit', edit_post_path(post), class: 'edit' %>
+                <%= button_to 'Destroy', post, class: 'delete', method: :delete, data: {confirm: 'Are you sure?'} %>
             <% end %>
           </footer>
         </div>

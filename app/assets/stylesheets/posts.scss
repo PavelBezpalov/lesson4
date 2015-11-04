@@ -1,3 +1,21 @@
-.container.container-blue {
-  @include container(map-get($colors, blue));
+.container.container-one {
+  @include container($color: #d80afc);
+}
+
+.container.container-two {
+  @include container($color: #ff3e83);
+}
+
+.container.container-three {
+  @include container($color: #ff5fe8);
+}
+
+input[type=submit].show {
+  @include button(map-get($colors, green));
+}
+input[type=submit].edit {
+  @include button(map-get($colors, yellow));
+}
+input[type=submit].delete {
+  @include button(map-get($colors, red));
 }
