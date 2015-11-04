@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_user
+  before_action :require_user, except: :index
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = @current_user.id
 
     respond_to do |format|
       if @post.save
