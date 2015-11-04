@@ -8,25 +8,33 @@
 </head>
 <body>
 
-<div class="nav">
-  <h1><%= link_to 'Homework 4', root_path %></h1>
-  <ul>
-    <li><%= link_to 'Posts', posts_path %></li>
-    <% if @current_user %>
-        Logged in as <%= @current_user.name %>.
-        <li><%= link_to "Log out", log_out_path %></li>
-    <% else %>
-        <li><%= link_to "Sign up", new_user_path %> or</li>
-        <li><%= link_to "log in", log_in_path %></li>
-    <% end %>
-  </ul>
+<div class="navbar">
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'New Post', new_post_path if @current_user %></li>
+    </ul>
+    <ul>
+      <% if @current_user %>
+          <li><%= @current_user.name %>
+          <li>
+          <li><%= link_to "Log Out", log_out_path %></li>
+      <% else %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Log In", log_in_path %></li>
+      <% end %>
+    </ul>
+  </nav>
 </div>
 
 <% flash.each do |type, message| %>
-    <%= message %>"
+    <div class="alert">
+      <%= message %>
+    </div>
 <% end %>
 
 <%= yield %>
+
 
 </body>
 </html>

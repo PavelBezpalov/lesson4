@@ -1,0 +1,10 @@
+@import "kickstart_rails";
+@import "posts";
+
+.navbar {
+  @include navbar();
+}
+
+.alert {
+  @include alert();
+}
