@@ -40,6 +40,10 @@ RSpec.describe PostsController, type: :controller do
   # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    allow(controller).to receive(:current_user).and_return(User.new)
+  end
+
   describe "GET #index" do
     it "assigns all posts as @posts" do
       post = Post.create! valid_attributes
